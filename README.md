@@ -1,20 +1,22 @@
-# Dev Setup
+# *Dev Setup*
 
-Herramienta de automatización para preparacion de entorno de desarrollo (Linux / Windows)
+*Herramienta de automatización para preparacion de entorno de desarrollo (Linux / Windows)*
 
-> *Nota* : Para evitar errores de capa 8 lea bien la asignación
-
----
-
-## Requisitos previos
-
-Contar con equipo con Sistema Operativo **Linux** ( distros basadas en Ubuntu o campatibles con paqueteria ***apt*** ) o **Window**
+> *Nota : Para evitar errores de capa 8 lea bien la asignación*
 
 ---
 
-# Instalación
+# *Requisitos previos*
 
-## 1 Instalar git en VS Code (Terminal)
+*Contar con equipo con Sistema Operativo **Linux** ( distros basadas en Ubuntu o campatibles con paqueteria **apt** ) o **Window***
+
+
+---
+
+
+# *Instalación*
+
+## *1 Instalar git en VS Code (Terminal)*
 
 ```bash
 # Para sistemas Linux (basados en ubuntu)
@@ -26,14 +28,14 @@ sudo apt install git
 winget install --id Git.Git -e --source winget --silent --accept-package-agreements --accept-source-agreements
 ```
 
-### 2 Clonar el repositorio (Terminal de VS Code)
+### *2 Clonar el repositorio (Terminal de VS Code)*
 
 ```bash
 git clone https://github.com/xX0Zero0Xx/Dev-Setup.git
 cd Dev-Setup
 ```
 
-## 3 Ejecucion de Scripts
+## *3 Ejecucion de Scripts*
 
 ```bash
 # Linux
@@ -50,7 +52,5 @@ cd windows
 .\04-vscode.ps1
 .\03-update.ps1 # Opcional
 ```
-
----
 
 # *Nota : Asegurece de estar en el directorio correcto o agregar la ruta completa en cada comando O_¬*
