@@ -1,0 +1,9 @@
+# Logs
+logs/*.log
+!logs/.gitkeep
+
+# Archivos del sistema operativo / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
