@@ -5,23 +5,13 @@ set -e
 # importar librerías
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/lib/common.sh"
+source "$SCRIPT_DIR/lib/vscode.sh"
 
 # validar permisos
 check_sudo
 
-echo "Actualizando el entorno de desarrollo"
+echo "Configurando extensiones de VS Code"
 
-log_info "Actualizando repositorios apt..."
-apt-get update -y > /dev/null 2>&1
+install_vscode_extensions
 
-log_info "Actualizando paquetes del sistema..."
-apt-get upgrade -y > /dev/null 2>&1
-log_success "Paquetes del sistema actualizados."
-
-if command -v composer > /dev/null 2>&1; then
-    log_info "Actualizando Composer..."
-    composer self-update > /dev/null 2>&1 || true
-    log_success "Composer actualizado."
-fi
-
-log_success "¡Actualización del entorno completada con éxito!"
+log_success "¡Configuración de VS Code completada con éxito!"
