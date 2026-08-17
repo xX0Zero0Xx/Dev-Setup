@@ -4,3 +4,4 @@ $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Write-Info "Configurando extensiones de VS Code en Windows"
 Install-VSCodeExtensions-Win
+Set-VSCodeSettings-Win

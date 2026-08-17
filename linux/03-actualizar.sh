@@ -12,15 +12,15 @@ check_sudo
 echo "Actualizando el entorno de desarrollo"
 
 log_info "Actualizando repositorios apt..."
-apt-get update -y > /dev/null 2>&1
+run_logged "Actualización de listas apt" apt-get update -y
 
 log_info "Actualizando paquetes del sistema..."
-apt-get upgrade -y > /dev/null 2>&1
+run_logged "Actualización de paquetes del sistema" apt-get upgrade -y
 log_success "Paquetes del sistema actualizados."
 
 if command -v composer > /dev/null 2>&1; then
     log_info "Actualizando Composer..."
-    composer self-update > /dev/null 2>&1 || true
+    run_logged "Actualización de Composer" composer self-update || true
     log_success "Composer actualizado."
 fi
 

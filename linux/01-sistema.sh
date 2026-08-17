@@ -22,4 +22,11 @@ install_apt_packages
 setup_php_repository
 install_php_packages
 
+# configuración del repositorio e instalación de Node.js / npm
+setup_nodejs_repository
+install_nodejs_packages
+
+# instalación de Composer
+install_composer
+
 log_success "¡Instalación base del sistema completada!"

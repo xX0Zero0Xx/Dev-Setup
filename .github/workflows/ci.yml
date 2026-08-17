@@ -1,0 +1,40 @@
+name: Dev-Setup CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint-and-validate:
+    name: Lint & Validate Shell Scripts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify executable permissions
+        run: |
+          chmod +x setup.sh linux/*.sh linux/lib/*.sh
+
+      - name: Check Bash Syntax
+        run: |
+          bash -n setup.sh
+          bash -n linux/*.sh
+          bash -n linux/lib/*.sh
+
+      - name: Test CLI Runner Help
+        run: |
+          ./setup.sh --help
+
+      - name: Test Environment Verification
+        run: |
+          ./setup.sh --check
+
+      - name: Verify VS Code Settings Template
+        run: |
+          test -f config/vscode-settings.json
+          test -f config/versiones.conf
+          test -f config/paquetes.conf

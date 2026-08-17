@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.associations": {
+    "*.blade.php": "blade"
+  },
+  "intelephense.environment.phpVersion": "8.3",
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "[blade]": {
+    "editor.defaultFormatter": "onecentlin.laravel-blade"
+  },
+  "emmet.includeLanguages": {
+    "blade": "html"
+  }
+}
