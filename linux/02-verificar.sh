@@ -19,5 +19,7 @@ echo "---"
 verify_composer
 echo "---"
 verify_node
+echo "---"
+verify_xampp_mysql
 
 log_info "Verificación finalizada."

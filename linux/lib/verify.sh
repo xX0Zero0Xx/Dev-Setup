@@ -25,6 +25,20 @@ verify_php() {
         else
             log_warning "PHP $clean_ver es inferior a la versión requerida ($PHP_REQUIRED_VERSION)"
         fi
+
+        # Comprobar extensiones críticas para Laravel y PDF/QR
+        local missing_ext=()
+        for ext in mbstring pdo_mysql gd curl xml zip; do
+            if ! php -m | grep -qi "^$ext$"; then
+                missing_ext+=("$ext")
+            fi
+        done
+
+        if [ ${#missing_ext[@]} -eq 0 ]; then
+            log_success "Extensiones PHP clave presentes (incluye gd y pdo_mysql)"
+        else
+            log_warning "Faltan extensiones PHP recomendadas: ${missing_ext[*]}"
+        fi
     fi
 }
 
@@ -89,5 +103,16 @@ verify_node() {
         fi
     else
         log_error "NPM no está instalado. Ejecuta ./linux/01-sistema.sh para instalarlo."
+    fi
+}
+
+verify_xampp_mysql() {
+    if [ -d "/opt/lampp" ]; then
+        log_info "XAMPP detectado en /opt/lampp"
+        if /opt/lampp/lampp status 2>/dev/null | grep -qi "mysql is running"; then
+            log_success "MySQL de XAMPP está activo y en ejecución"
+        else
+            log_warning "MySQL de XAMPP está DETENIDO. Puedes iniciarlo con: sudo /opt/lampp/lampp startmysql"
+        fi
     fi
 }
